@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && node devServer.js",
+    "dev": "webpack && node devServer.js",
     "build": "set NODE_ENV=production&&webpack --config webpack.config.prod.js --progress --profile"
   },
   "author": "LevanDu",
@@ -35,7 +35,7 @@
     "webpack-hot-middleware": "2.1.0"
   },
   "dependencies": {
-    "antd": "^3.5.3",
+    "antd": "1.11.5",
     "anu": "^0.1.0",
     "anujs": "^1.0.7",
     "console-polyfill": "^0.3.0",

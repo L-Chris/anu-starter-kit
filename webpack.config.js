@@ -3,6 +3,9 @@ const webpack = require('webpack'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   TransferWebpackPlugin = require('transfer-webpack-plugin');
 
+function resolve (dir) {
+  return path.join(__dirname, '.', dir)
+}
 
 module.exports = {
   entry: {
@@ -27,13 +30,14 @@ module.exports = {
       loader: 'style-loader!css-loader'
     }, {
       test: /\.scss$/,
-      loader: 'style-loader!css-loader!sass-loader'
+      loader: 'style-loader!css-loader!sass-loader!sass-resources-loader'
     }],
     postLoaders: [{
       test: /\.js$/,
       loader: "es3ify-loader"
     }]
   },
+  sassResources: ['./src/styles/vars.scss', './src/styles/mixins.scss'],
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/index.html'),
@@ -51,7 +55,7 @@ module.exports = {
     alias: {
       react: "anujs/dist/ReactIE.js",
       "react-dom": "anujs/dist/ReactIE.js",
-      '@': "./src"
+      '@': resolve('src')
     }
   }
 }

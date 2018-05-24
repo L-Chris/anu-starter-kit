@@ -1,0 +1,19 @@
+.home {
+  &-head {
+    &-icon {}
+    &-menu {
+      float: right;
+      z-index: 99;
+      &.ant-menu-horizontal {
+        border-bottom: none; 
+      }
+    }
+  }
+  &-main {
+    // padding: 64px 128px;
+  }
+}
+
+.overhidden {
+  overflow: hidden;
+}

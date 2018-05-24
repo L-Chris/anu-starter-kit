@@ -9,11 +9,11 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    index: './src/index'
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/dist'
   },
   module: {
     loaders: [{
@@ -40,21 +40,7 @@ module.exports = {
     }),
     new TransferWebpackPlugin([
       { from: 'services/polyfill', to: '/js' }
-    ], path.join(__dirname, 'src')),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        properties: false,
-        warnings: false
-      },
-      output: {
-        beautify: true,
-        quote_keys: true
-      },
-      mangle: {
-        screw_ie8: false
-      },
-      sourceMap: false
-    })
+    ], path.join(__dirname, 'src'))
   ],
   resolve: {
     alias: {
