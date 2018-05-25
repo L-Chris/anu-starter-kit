@@ -38,9 +38,9 @@ class Home extends React.Component {
     return (
       <section class="home view overhidden">
         <header class="home-head view-head shadow-border">
-          <span class="home-head-icon">
+          <div class="home-head-icon f-16 text-blue">
             <img />翼赛英语竞赛平台
-          </span>
+          </div>
           <Menu className="home-head-menu"
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}

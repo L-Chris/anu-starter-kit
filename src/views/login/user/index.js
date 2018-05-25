@@ -11,6 +11,7 @@ class LoginUser extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange (val) {
@@ -20,6 +21,8 @@ class LoginUser extends React.Component {
       schoolList: this.state.schoolList.filter(_ => _.includes(val))
     })
   }
+  handleForgetPassword () {}
+  handleSubmit () {}
 
   render () {
     return (
@@ -38,7 +41,8 @@ class LoginUser extends React.Component {
               <Form.Item>
                 <Input type="password" size="large" placeholder="密码"/>
               </Form.Item>
-              <Button size="large" type="primary">登录</Button>
+              <Button className="w-12" size="large" type="primary">登录</Button>
+              <span class="f-12" onClick={this.handleForgetPassword}>忘记密码？</span>
             </Form>
           </Tabs.TabPane>
           <Tabs.TabPane tab="快速登录" key="2">
@@ -50,7 +54,7 @@ class LoginUser extends React.Component {
                 <Input type="password" size="large" placeholder="密码"/>
               </Form.Item>
             </Form>
-            <Button size="large" type="primary">登录</Button>
+            <Button className="w-12" size="large" type="primary">登录</Button>
           </Tabs.TabPane>
         </Tabs>
       </Card>

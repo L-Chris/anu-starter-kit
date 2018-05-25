@@ -30,19 +30,14 @@ li {
 .view {
     width: 100%;
     height: 100%;
-    display: table;
-    border-collapse: collapse;
     &-head {
-        display: table-row;
-        height: 1px;
+        width: 100%;
     }
     &-main {
         width: 100%;
         height: 100%;
     }
     &-foot {
-        display: table-row;
-        height: 1px;
     }
 }
 
@@ -68,7 +63,17 @@ li {
 }
 
 @for $i from 1 through 12 {
+    .f-#{$i * 2 + 10} {
+        font-size: $i * 2 + 10px;
+    }
     .mt-#{$i * 4} {
         margin-top: $i * 4px;
     }
+    .w-#{$i} {
+        width: $i / 12 * 100%;
+    }
+}
+
+.text-blue {
+    color: $text-color-blue;
 }

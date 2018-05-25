@@ -1,16 +1,29 @@
+$head-height: 50px;
 .home {
   &-head {
-    &-icon {}
+    position: fixed;
+    top: 0;
+    height: $head-height;
+    padding: 0 36px;
+    z-index: 100;
+    &-icon {
+      line-height: $head-height;
+      float: left;
+      img {}
+    }
     &-menu {
       float: right;
-      z-index: 99;
+      .iconfont {
+        margin-right: 6px;
+        font-size: 20px;
+      }
       &.ant-menu-horizontal {
-        border-bottom: none; 
+        border-bottom: none;
       }
     }
   }
   &-main {
-    // padding: 64px 128px;
+    padding-top: $head-height;
   }
 }
 
