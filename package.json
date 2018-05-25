@@ -29,7 +29,7 @@
     "sass-resources-loader": "^1.3.3",
     "style-loader": "0.14.1",
     "transfer-webpack-plugin": "^0.1.4",
-    "url-loader": "^0.5.9",
+    "url-loader": "^1.0.1",
     "webpack": "1.15.0",
     "webpack-dev-middleware": "1.11.0",
     "webpack-hot-middleware": "2.1.0"

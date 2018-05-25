@@ -1,15 +1,19 @@
-$head-height: 50px;
+$head-height: 58px;
 .home {
   &-head {
     position: fixed;
     top: 0;
     height: $head-height;
-    padding: 0 36px;
+    padding: 4px 36px;
     z-index: 100;
     &-icon {
-      line-height: $head-height;
+      height: 100%;
       float: left;
-      img {}
+      img {
+        height: 100%;
+        vertical-align: middle;
+        margin-right: 12px;
+      }
     }
     &-menu {
       float: right;

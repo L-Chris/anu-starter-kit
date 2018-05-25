@@ -27,6 +27,9 @@ class LoginUser extends React.Component {
   render () {
     return (
       <Card className="loginUser">
+        <div class="align-center">
+          <img src={require('@/assets/student-logo.png')}/>
+        </div>
         <Tabs className="loginUser-tab" defaultActiveKey="1">
           <Tabs.TabPane tab="实名登录" key="1">
             <Form>

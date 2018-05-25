@@ -39,7 +39,7 @@ class Home extends React.Component {
       <section class="home view overhidden">
         <header class="home-head view-head shadow-border">
           <div class="home-head-icon f-16 text-blue">
-            <img />翼赛英语竞赛平台
+            <img src={require('@/assets/user-logo.png')}/>翼赛英语竞赛平台
           </div>
           <Menu className="home-head-menu"
             onClick={this.handleClick}
