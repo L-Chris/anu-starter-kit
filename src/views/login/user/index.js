@@ -1,4 +1,4 @@
-import { Card, Tabs, Form, Select, Input, Button } from 'antd'
+import { Card, Tabs, Button, Form, Select, Input } from 'antd'
 import './index.scss'
 const React = require('react')
 

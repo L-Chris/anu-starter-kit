@@ -1,12 +1,15 @@
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
-var config = require('./webpack.config');
-
+var config = require('./webpack.dev.conf');
 var app = express();
 var compiler = webpack(config);
-//通过localhost可以访问项目文件夹下的所有文件，等于动态为每个静态文件创建了路由
-app.use(express.static(path.join(__dirname, '/dist')))
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+app.use(express.static(resolve('dist')))
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: '/dist'
@@ -14,11 +17,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(resolve('dist/index.html'));
 });
 
-app.listen(8080, 'localhost', function(err) {
+app.listen(8080, 'localhost', err => {
   if (err) {
     console.log(err);
     return;

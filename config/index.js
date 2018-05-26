@@ -59,9 +59,9 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
-    assetsPublicPath: 'https://mapi.ekwing.com/resource/parent/1.5/',
+    assetsPublicPath: './',
     assetsCDNRoot: 'http://oh1f9ia5p.bkt.clouddn.com/parent-app/',
-    routePublicPath: '/parent/exam/getscorereport',
+    routePublicPath: '',
 
     /**
      * Source Maps
@@ -83,7 +83,7 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     // bundleAnalyzerReport: process.env.npm_config_report
-    bundleAnalyzerReport: false,
+    bundleAnalyzerReport: true,
     // qiniu upload config
     qiniu: {
       accessKey: 'g9n2gXqQ5SQuu1YQw8R9NTdd9SY1iyxm2e15iPgT',
