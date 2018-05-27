@@ -7,19 +7,18 @@ const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// add hot-reload related code to entry chunks
+Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+})
+
 module.exports = merge(baseWebpackConfig, {
-  entry: {
-    index: [
-      'eventsource-polyfill', //兼容ie
-      'webpack-hot-middleware/client?reload=true', //看上面
-      './src/index.js'
-    ]
-  },
   devtool: '#cheap-module-eval-source-map',
   module: {
     loaders: [
@@ -33,6 +32,9 @@ module.exports = merge(baseWebpackConfig, {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': config.dev.env
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -46,6 +48,7 @@ module.exports = merge(baseWebpackConfig, {
     ], resolve('src')),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new FriendlyErrorsPlugin()
   ]
 })

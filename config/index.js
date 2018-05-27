@@ -6,20 +6,12 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    env: require('./dev.env'),
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     routePublicPath: '',
-    proxyTable: {
-      '/parent': {
-        target: 'http://mapi.ekwing.com/parent',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/parent': ''
-        }
-      }
-    },
+    proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -53,6 +45,7 @@ module.exports = {
   },
 
   build: {
+    env: require('./prod.env'),
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 

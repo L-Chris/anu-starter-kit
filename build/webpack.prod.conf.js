@@ -15,9 +15,6 @@ function resolve (dir) {
 }
 
 const webpackConfig = merge(baseWebpackConfig, {
-  entry: {
-    index: './src/index'
-  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
@@ -37,6 +34,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': config.build.env
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         properties: false,
