@@ -76,15 +76,6 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     // bundleAnalyzerReport: process.env.npm_config_report
-    bundleAnalyzerReport: true,
-    // qiniu upload config
-    qiniu: {
-      accessKey: 'g9n2gXqQ5SQuu1YQw8R9NTdd9SY1iyxm2e15iPgT',
-      secretKey: 'XDWpagJhQUdcFpuR_Y9BDT9boKQCnHLqLKII9Anc',
-      bucket: 'mechanic',
-      zone: 'Zone_z2',
-      path: 'parent-app/',
-      exclude: /index\.html$/
-    }
+    bundleAnalyzerReport: true
   }
 }
