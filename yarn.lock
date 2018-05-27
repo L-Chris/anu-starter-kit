@@ -1675,6 +1675,10 @@ es3ify@0.2.x:
     jstransform "~11.0.0"
     through "~2.3.4"
 
+es5-shim@^4.5.10:
+  version "4.5.10"
+  resolved "https://registry.npmjs.org/es5-shim/-/es5-shim-4.5.10.tgz#b7e17ef4df2a145b821f1497b50c25cf94026205"
+
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"

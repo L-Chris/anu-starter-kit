@@ -1,10 +1,9 @@
-import { Menu, Card } from 'antd'
-const React = require('react')
-require('react-dom')
-var EkIcon = require('@/components/EkIcon')
-require('./index.scss')
+import React, {Component} from 'react'
+import {Menu, Card} from 'antd'
+import EkIcon from '@/components/EkIcon'
+import './index.scss'
 
-class Home extends React.Component {
+class Home extends Component {
   constructor(props) {
     super(props)
 
@@ -64,4 +63,4 @@ class Home extends React.Component {
   }
 }
 
-module.exports = Home
+export default Home

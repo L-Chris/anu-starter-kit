@@ -1,8 +1,8 @@
+import React, {Component} from 'react'
 import { Card, Tabs, Button, Form, Select, Input } from 'antd'
 import './index.scss'
-const React = require('react')
 
-class LoginUser extends React.Component {
+class LoginUser extends Component {
   constructor () {
     super()
     
@@ -65,4 +65,4 @@ class LoginUser extends React.Component {
   }
 }
 
-module.exports = LoginUser
+export default LoginUser
