@@ -25,6 +25,9 @@ module.exports = {
     alias: {
       react: "anujs/dist/ReactIE.js",
       "react-dom": "anujs/dist/ReactIE.js",
+      'prop-types': 'anujs/lib/ReactPropTypes',
+      'devtools' : "anujs/lib/devtools",
+      'create-react-class': 'anujs/lib/createClass',
       '@': resolve('src')
     }
   },
@@ -55,10 +58,10 @@ module.exports = {
         name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
       }
     }],
-    sassResources: ['./src/styles/vars.scss', './src/styles/mixins.scss'],
     postLoaders: [{
       test: /\.js$/,
       loader: "es3ify-loader"
     }]
-  }
+  },
+  sassResources: ['./src/styles/vars.scss', './src/styles/mixins.scss']
 }

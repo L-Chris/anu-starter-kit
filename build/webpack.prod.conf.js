@@ -29,7 +29,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(['css', 'sass'])
+        loader: ExtractTextPlugin.extract(['css', 'sass', 'sass-resources'])
       }
     ]
   },
@@ -40,17 +40,19 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         properties: false,
-        warnings: false
+        warnings: false,
+        screw_ie8: false
       },
       output: {
         comments: false,
-        beautify: true,
-        quote_keys: true
+        beautify: false,
+        quote_keys: true,
+        screw_ie8: false
       },
       mangle: {
         screw_ie8: false
       },
-      sourceMap: false
+      sourceMap: true
     }),
     new ExtractTextPlugin('css/[name].[contenthash].css', {
       allChunks: true

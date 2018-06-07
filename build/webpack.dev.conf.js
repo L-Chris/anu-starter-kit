@@ -27,7 +27,7 @@ module.exports = merge(baseWebpackConfig, {
         loader: 'style-loader!css-loader'
       }, {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        loader: 'style-loader!css-loader!sass-loader!sass-resources-loader'
       }
     ]
   },

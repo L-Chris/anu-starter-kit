@@ -1,4 +1,4 @@
-# anu-demo
+# anu-starter-kit
 
 ## features
 - antd
