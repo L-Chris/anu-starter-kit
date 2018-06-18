@@ -7,6 +7,7 @@ const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const es3ifyPlugin = require('es3ify-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
@@ -15,7 +16,7 @@ function resolve (dir) {
 }
 
 const webpackConfig = merge(baseWebpackConfig, {
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  devtool: config.build.productionSourceMap ? 'source-map' : false,
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
@@ -37,6 +38,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.build.env
     }),
+    new es3ifyPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         properties: false,

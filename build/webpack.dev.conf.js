@@ -7,19 +7,15 @@ const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const es3ifyPlugin = require('es3ify-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
-
 module.exports = merge(baseWebpackConfig, {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -35,6 +31,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
+    new es3ifyPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -50,5 +47,14 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new FriendlyErrorsPlugin()
-  ]
+  ],
+  devServer: {
+    disableHostCheck: true,
+    historyApiFallback: true,
+    progress: true,
+    quiet: true,
+    outputPath: config.build.assetsRoot,
+    host: "0.0.0.0",
+    port: 3001
+  }
 })

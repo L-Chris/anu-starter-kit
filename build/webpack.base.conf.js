@@ -1,10 +1,9 @@
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
 const config = require('../config')
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TransferWebpackPlugin = require('transfer-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,11 +24,16 @@ module.exports = {
     alias: {
       react: "anujs/dist/ReactIE.js",
       "react-dom": "anujs/dist/ReactIE.js",
+      reach: "anujs/dist/Router.js",
+      rematch: "anujs/dist/Rematch.js",
       'prop-types': 'anujs/lib/ReactPropTypes',
       'devtools' : "anujs/lib/devtools",
       'create-react-class': 'anujs/lib/createClass',
       '@': resolve('src')
     }
+  },
+  postcss: function () {
+    return [autoprefixer]
   },
   module: {
     loaders: [{
@@ -57,10 +61,6 @@ module.exports = {
         limit: 10000,
         name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
       }
-    }],
-    postLoaders: [{
-      test: /\.js$/,
-      loader: "es3ify-loader"
     }]
   },
   sassResources: ['./src/styles/vars.scss', './src/styles/mixins.scss']
